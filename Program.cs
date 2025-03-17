@@ -14,38 +14,19 @@ class Program
             return;
         }
 
-        VurderPassord(passord);
+        Console.WriteLine(VurderPassord(passord));
     }
 
-    static void VurderPassord(string passord)
+    static string VurderPassord(string passord)
     {
-        int lengde = passord.Length;
-
-        if (lengde < 6)
-        {
-            Console.WriteLine("Svakt passord");
-        }
-        else if (lengde < 12)
-        {
-            Console.WriteLine("Middels sterkt passord");
-        }
-        else
-        {
-            Console.WriteLine("Sterkt passord");
-        }
-
-        if (ErEkstraSterkt(passord))
-        {
-            Console.WriteLine("Ekstra sterkt passord!");
-        }
+        return ErEkstraSterkt(passord) ? "Ekstra sterkt passord!" :
+               passord.Length < 8 ? "Svakt passord" :
+               passord.Length < 12 ? "Middels sterkt passord" :
+               "Sterkt passord";
     }
 
     static bool ErEkstraSterkt(string passord)
     {
-        bool harTall = Regex.IsMatch(passord, @"\d");
-        bool harStoreBokstaver = Regex.IsMatch(passord, @"[A-Z]");
-        bool harSpesialtegn = Regex.IsMatch(passord, @"[!@#$%^&*(),.?\""{}|<>]");
-
-        return harTall && harStoreBokstaver && harSpesialtegn;
+        return Regex.IsMatch(passord, @"\d") || Regex.IsMatch(passord, @"[!@#$%^&*(),.?""{}|<>]");
     }
 }
