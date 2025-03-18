@@ -5,14 +5,14 @@ Hvis passordet er tomt, skriv ut feilmelding og avslutt
 
     Finn lengden på passordet
 
-    Hvis lengde < 6
+    Hvis lengde < 8
         Print "Svakt passord"
-    Ellers hvis lengde >= 6 og lengde < 12
+    Ellers hvis lengde >= 8 og lengde < 12
         Print "Middels sterkt passord"
     Ellers
         Print "Sterkt passord"
 
-    Hvis passordet inneholder tall, store bokstaver og spesialtegn
+    Hvis passordet inneholder tall ELLER spesialtegn
         Print "Ekstra sterkt passord"
 
 STOP
